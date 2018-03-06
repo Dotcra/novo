@@ -10,7 +10,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class Clerk extends Controller{
+class Staff extends Controller{
 	private $a;
 	private $b;
 	private $c;
@@ -22,14 +22,10 @@ class Clerk extends Controller{
 
 	function list(){
 		$a = [
-			'root' => '/sym',
+			'root' => '/n',
 			'sitename' => 'fuckme',
 			'uname' => 'jess',
 		];
 		return $this->render('personnel.html.twig', $a);
 	}
 }
-
-#new pus();
-#pus::f();
-

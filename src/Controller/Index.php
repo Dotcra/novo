@@ -22,7 +22,7 @@ class Index extends Controller{
 
 	function index($her='jess'){
 		$a = [
-			'root' => '/sym',
+			'root' => '/n',
 			'sitename' => 'fuckme',
 			'uname' => 'jess',
 		];

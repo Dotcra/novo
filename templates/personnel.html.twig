@@ -1,17 +1,4 @@
-<?php
-$sql="select pid,p.oid,pname,investment,o1.oname,p_incharge,o2.oname oname_serve,alert from projects p join (organization o1, organization o2) on (p.oid=o1.oid and p.oid_serve=o2.oid)";
-$p_rows=(new Db)->query($sql);
-
-$oid=$_SESSION['oid'];
-if($rid == 3 || $rid == 2){
-	$myproj_btn = 'btn-outline-secondary';
-}
-else{
-	$myproj_btn = 'btn-primary';
-}
-// $rid == 3 ? $myproj_btn = 'btn-outline-secondary' : $myproj_btn = 'btn-primary';
-?>
-
+{{ include('header.html.twig') }}
 	  <div class="container" id="projects">
 		  <nav aria-label="breadcrumb" class="">
 			  <div class="">
@@ -40,11 +27,9 @@ else{
 				  <span class="badge badge-warning">数据与上月雷同</span>
 				  <span class="badge badge-danger">本月尚未提交</span>
 			  </div>
-<?php if($rid == 3): ?>
 			  <div class="col-auto col-sm-auto pr-0">
 				  <a id="newproject" role="button" class="btn btn-success" href="<?= $root ?>/newproject">新增项目</a>
 			  </div>
-<?php endif ?>
 			  <div class="col-auto col-sm-auto pr-0">
 				  <a role="button" class="btn btn-info text-white" href="<?= "$root/project/report" ?>">统计报表</a>
 			  </div>
@@ -69,24 +54,6 @@ else{
 			  </thead>
 			  <tbody>
 
-<?php foreach($p_rows as $row): ?>
-<?php
-if($row['oid'] == $oid || $rid == 3 || $rid == 2){
-	$class="searchable";
-}
-else{
-	$class="d-none";
-}
-
-switch($row['alert']){
-case 1:
-	$class .=' bg-warning';
-	break;
-case 2:
-	$class .=' bg-danger';
-	break;
-}
-?>
 	<tr class="<?= $class ?>" data-oid="<?= $row['oid'] ?>">
 				  <th scope="row"><?= $row['pid'] ?></th>
 					  <td><?= $row['pname'] ?></td>
@@ -95,7 +62,6 @@ case 2:
 					  <td><?= $row['p_incharge'] ?></td>
 					  <td><?= $row['oname_serve'] ?></td>
 				  </tr>
-<?php endforeach; ?>
 			  </tbody>
 		  </table>
 		  </main>
