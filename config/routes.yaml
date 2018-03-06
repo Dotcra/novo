@@ -1,0 +1,6 @@
+index:
+    path: /
+    controller: App\Controller\Index::index
+personnel:
+    path: /clerk
+    controller: App\Controller\Clerk::list
