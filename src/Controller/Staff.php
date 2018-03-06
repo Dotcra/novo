@@ -26,6 +26,6 @@ class Staff extends Controller{
 			'sitename' => 'fuckme',
 			'uname' => 'jess',
 		];
-		return $this->render('personnel.html.twig', $a);
+		return $this->render('staff.html.twig', $a);
 	}
 }
